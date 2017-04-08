@@ -81,7 +81,43 @@
         @yield('content')
     </div>
 
+    <!-- jQuery -->
+    <script src="{{ asset('js/jquery/jquery.min.js'}}"></script>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ asset('css/bootstrap/js/bootstrap.min.js')"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/refer_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/agency.js"></script>
+    <script>
+       $(document).ready(function(){
+         $(".usp .rotate").textrotator({
+                animation: "fade",
+                speed: 2000
+        });
+       });
+    </script>
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85362816-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
 </body>
 </html>
