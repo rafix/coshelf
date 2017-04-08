@@ -70,6 +70,16 @@ return [
             'model' => App\User::class,
         ],
 
+        // 'makers' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Maker::class,
+        // ],
+
+        // 'retailers' => [
+        //     'driver' => 'eloquent',
+        //     'model' => App\Retailer::class,
+        // ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
