@@ -17,5 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => 'web', 'prefix' => 'app'], function () {
+    Route::auth();
+    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('dashboard', 'AppController@dashboard');
+    Route::get('/', 'AppController@redirect');
+});

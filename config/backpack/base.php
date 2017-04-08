@@ -16,7 +16,7 @@ return [
 
     // Menu logos
     'logo_lg'   => '<b>Co</b>Shelf',
-    'logo_mini' => '<b>C</b>',
+    'logo_mini' => '<b>C</b>S',
 
     // Developer or company name. Shown in footer.
     'developer_name' => 'Saralabs Team',
@@ -64,7 +64,7 @@ return [
 
     // Set this to false if you would like to skip adding the dashboard routes
     // (you then need to overwrite the login route on your AuthController)
-    'setup_dashboard_routes' => true,
+    'setup_dashboard_routes' => false,
 
     /*
     |--------------------------------------------------------------------------
