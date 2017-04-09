@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->text('special_requirements');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
+            $table->text('image');
         });
     }
 

@@ -55,6 +55,15 @@ class ProductCrudController extends CrudController
             'prefix' => "$",
         ]);
 
+        $this->crud->addField([ // image
+            'label' => "Image",
+            'name' => "image",
+            'type' => 'image',
+            'upload' => true,
+            'crop' => true, // set to true to allow cropping, false to disable
+            'aspect_ratio' => 1, // ommit or set to 0 to allow any aspect ratio
+        ]);
+
         $this->crud->addField([
             'name' => 'description',
             'label' => 'Description',
