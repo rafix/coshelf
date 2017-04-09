@@ -22,8 +22,6 @@ class CreateProfileMakersTable extends Migration
             $table->date('created');
             $table->text('description');
             $table->text('terms');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

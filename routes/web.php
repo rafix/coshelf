@@ -22,4 +22,6 @@ Route::group(['middleware' => 'admin', 'prefix' => 'app'], function () {
     Route::get('logout', 'Auth\LoginController@logout');
     Route::get('dashboard', 'AppController@dashboard');
     Route::get('/', 'AppController@redirect');
+    CRUD::resource('maker', 'Admin\ProfileMakerCrudController');
 });
+

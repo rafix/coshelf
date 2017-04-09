@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 class AppController extends Controller
 {
     protected $data = []; // the information we send to the view
@@ -21,6 +23,10 @@ class AppController extends Controller
      */
     public function dashboard()
     {
+        if(Auth::user()->has('profile')->get()->isEmpty()) {
+            return redirect(config('backpack.base.route_prefix').'/maker/create');
+        }
+
         $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
 
         return view('backpack::dashboard', $this->data);
