@@ -76,20 +76,12 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
-        if (Role::all()->whereNotIn('name', $data['type'])) {
+        if (Role::all()->whereIn('name', $data['type'])->isEmpty()) {
             Role::create([
                 'name' =>  $data['type'],
             ]);
         }
-
-        if ($data['type'] == 'maker') {
-            $user->syncRoles('Maker');
-        }
-        elseif ($data['type'] == 'retailer') {
-            $user->assignRole('Retailer');
-        }
-
-        $user->save();
+        $user->syncRoles($data['type'])->save();
 
         return $user;
     }
