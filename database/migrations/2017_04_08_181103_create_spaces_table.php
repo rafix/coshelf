@@ -19,6 +19,7 @@ class CreateSpacesTable extends Migration
             $table->integer('space_type_id')->unsigned();
             $table->decimal('size', 5, 2);
             $table->decimal('price', 5, 2);
+            $table->foreign('space_type_id')->references('id')->on('space_types');
             $table->timestamps();
         });
     }
