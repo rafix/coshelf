@@ -9,7 +9,11 @@
             <img src="https://placehold.it/160x160/00a65a/ffffff/&text={{ mb_substr(Auth::user()->name, 0, 1) }}" class="img-circle" alt="User Image">
           </div>
           <div class="pull-left info">
-            <p>{{ Auth::user()->name }}</p>
+            @if(Auth::user()->profile)
+              <p><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/'.Auth::user()->profile_type.'/'.Auth::user()->profile_id.'/edit') }}">{{ Auth::user()->name }}</a></p>
+            @else
+              <p>{{ Auth::user()->name }}</p>
+            @endif
             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
           </div>
         </div>

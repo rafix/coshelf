@@ -41,4 +41,11 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token));
     }
+
+    public function profile()
+    {
+        return $this->morphTo();
+    }
+
+
 }
