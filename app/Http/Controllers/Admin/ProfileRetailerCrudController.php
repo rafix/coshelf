@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProfileMakerRequest as StoreRequest;
-use App\Http\Requests\ProfileMakerRequest as UpdateRequest;
+use App\Http\Requests\ProfileRetailerRequest as StoreRequest;
+use App\Http\Requests\ProfileRetailerRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileMakerCrudController extends CrudController
+class ProfileRetailerCrudController extends CrudController
 {
 
     public function setUp()
@@ -21,9 +20,9 @@ class ProfileMakerCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\ProfileMaker');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/maker');
-        $this->crud->setEntityNameStrings('Maker', 'Makers');
+        $this->crud->setModel('App\Models\ProfileRetailer');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/retailer');
+        $this->crud->setEntityNameStrings('Retailer', 'Retailers');
 
         /*
         |--------------------------------------------------------------------------
@@ -32,12 +31,6 @@ class ProfileMakerCrudController extends CrudController
         */
 
 //        $this->crud->setFromDb();
-
-        // ------ CRUD FIELDS
-        // $this->crud->addField($options, 'update/create/both');
-        // $this->crud->addFields($array_of_arrays, 'update/create/both');
-        // $this->crud->removeField('name', 'update/create/both');
-        // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         $this->crud->addField([
             'name' => 'business_name',
@@ -52,21 +45,9 @@ class ProfileMakerCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'phone',
-            'label' => 'Phone',
+            'name' => 'opening_hours',
+            'label' => 'Opening Hours',
             'type'  => 'text'
-        ]);
-
-        $this->crud->addField([
-            'name' => 'contact',
-            'label' => 'Contact',
-            'type'  => 'email'
-        ]);
-
-        $this->crud->addField([
-            'name' => 'created',
-            'label' => 'Creation Date',
-            'type'  => 'date',
         ]);
 
         $this->crud->addField([
@@ -76,15 +57,19 @@ class ProfileMakerCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name' => 'terms',
-            'label' => 'Terms and Conditions',
-            'type'  => 'wysiwyg'
+            'name' => 'demographic',
+            'label' => 'Demographic',
+            'type'  => 'ckeditor'
         ]);
-
+        // ------ CRUD FIELDS
+        // $this->crud->addField($options, 'update/create/both');
+        // $this->crud->addFields($array_of_arrays, 'update/create/both');
+        // $this->crud->removeField('name', 'update/create/both');
+        // $this->crud->removeFields($array_of_names, 'update/create/both');
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
-         $this->crud->addColumns(['business_name', 'address', 'phone', 'email', ]); // add multiple columns, at the end of the stack
+        // $this->crud->addColumns(); // add multiple columns, at the end of the stack
         // $this->crud->removeColumn('column_name'); // remove a column from the stack
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
@@ -100,7 +85,7 @@ class ProfileMakerCrudController extends CrudController
 
         // ------ CRUD ACCESS
         // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
-         $this->crud->denyAccess(['delete']);
+        // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
         // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);

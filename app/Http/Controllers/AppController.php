@@ -23,8 +23,13 @@ class AppController extends Controller
      */
     public function dashboard()
     {
-        if(Auth::user()->has('profile')->get()->isEmpty()) {
-            return redirect(config('backpack.base.route_prefix').'/maker/create');
+        if(!Auth::user()->profile) {
+            if(Auth::user()->hasRole('maker')) {
+                return redirect(config('backpack.base.route_prefix').'/maker/create');
+            }
+            elseif(Auth::user()->hasRole('retailer')) {
+                return redirect(config('backpack.base.route_prefix').'/retailer/create');
+            }
         }
 
         $this->data['title'] = trans('backpack::base.dashboard'); // set the page title
