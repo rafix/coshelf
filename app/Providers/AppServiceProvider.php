@@ -17,10 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-//        Relation::morphMap([
-//            'makers' => 'App\Models\ProfileMaker',
-//            'retailers' => 'App\Models\ProfileRetailer',
-//        ]);
+        Relation::morphMap([
+            'maker' => 'App\Models\ProfileMaker',
+            'retailer' => 'App\Models\ProfileRetailer',
+        ]);
     }
 
     /**
