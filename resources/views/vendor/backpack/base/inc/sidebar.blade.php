@@ -24,11 +24,11 @@
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/category') }}"><i class="fa fa-category"></i> <span>{{ trans('backpack::base.category') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/product') }}"><i class="fa fa-product"></i> <span>{{ trans('backpack::base.product') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/rental') }}"><i class="fa fa-rental"></i> <span>{{ trans('backpack::base.rental') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/space') }}"><i class="fa fa-space"></i> <span>{{ trans('backpack::base.space') }}</span></a></li>
-          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/space-type') }}"><i class="fa fa-space"></i> <span>{{ trans('backpack::base.space-type') }}</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/category') }}"><i class="fa fa-category"></i> <span>Categories</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/product') }}"><i class="fa fa-product"></i> <span>Products</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/rental') }}"><i class="fa fa-rental"></i> <span>Rentals</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/space') }}"><i class="fa fa-space"></i> <span>Spaces</span></a></li>
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/space-type') }}"><i class="fa fa-space"></i> <span>Space Types</span></a></li>
 
 
           <!-- Users, Roles Permissions -->

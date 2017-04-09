@@ -19,7 +19,7 @@ class Product extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    // protected $fillable = [];
+     protected $fillable = ['name', 'category_id', 'price'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,10 @@ class Product extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

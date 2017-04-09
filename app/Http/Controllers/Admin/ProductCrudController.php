@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Category;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -29,7 +30,64 @@ class ProductCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+//        $this->crud->setFromDb();
+
+        $this->crud->addField([
+            'name' => 'name',
+            'label' => 'Name',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'category_id',
+            'label' => 'Category',
+            'type'  => 'select2',
+            'entity' => 'category',
+            'attribute' => 'name',
+            'model' => Category::class
+
+        ]);
+
+        $this->crud->addField([
+            'name' => 'price',
+            'label' => 'Price',
+            'type'  => 'number',
+            'prefix' => "$",
+        ]);
+
+        $this->crud->addField([
+            'name' => 'description',
+            'label' => 'Description',
+            'type'  => 'wysiwyg'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'special_requirements',
+            'label' => 'Special Requirements',
+            'type'  => 'wysiwyg'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => 'Name',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'category_id',
+            'label' => 'Category',
+            'type'  => 'select',
+            'entity' => 'category',
+            'attribute' => 'name',
+            'model' => Category::class
+        ]);
+        
+        $this->crud->addColumn([
+            'name' => 'price',
+            'label' => 'Price',
+            'type'  => 'text'
+        ]);
+
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

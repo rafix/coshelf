@@ -19,7 +19,7 @@ class Category extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    // protected $fillable = [];
+     protected $fillable = ['name'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,10 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 
     /*
     |--------------------------------------------------------------------------
