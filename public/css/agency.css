@@ -813,3 +813,16 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
+
+.control-label{
+  color: #333;
+}
+
+.logo{
+  text-align: center;
+}
+
+.register{
+  margin-top: 12em;
+  margin-bottom: 6em;
+}
