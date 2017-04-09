@@ -17,6 +17,8 @@ class CreateRentalsTable extends Migration
             $table->increments('id');
             $table->date('from');
             $table->date('to');
+            $table->integer('space_id')->unsigned();
+            $table->foreign('space_id')->references('id')->on('spaces');
             $table->timestamps();
         });
     }

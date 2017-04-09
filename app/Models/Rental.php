@@ -19,7 +19,7 @@ class Rental extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    // protected $fillable = [];
+     protected $fillable = ['from', 'to', 'space_id'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,7 +34,10 @@ class Rental extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function spaces()
+    {
+        return $this->belongsTo(Space::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

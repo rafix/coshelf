@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Space;
+use App\Models\SpaceType;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -29,8 +31,63 @@ class SpaceCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+//        $this->crud->setFromDb();
 
+        $this->crud->addColumn([
+            'name' => 'name',
+            'label' => 'Name',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'space_type_id',
+            'label' => 'Space Type',
+            'type'  => 'select',
+            'entity' => 'spacetype',
+            'attribute' => 'name',
+            'model' => SpaceType::class
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'price',
+            'label' => 'Price',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'price',
+            'label' => 'Price',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'name',
+            'label' => 'Name',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addField([
+            'name' => 'space_type_id',
+            'label' => 'Space Type',
+            'type'  => 'select2',
+            'entity' => 'spacetype',
+            'attribute' => 'name',
+            'model' => SpaceType::class
+
+        ]);
+
+        $this->crud->addField([
+            'name' => 'size',
+            'label' => 'Size',
+            'type'  => 'number',
+        ]);
+
+        $this->crud->addField([
+            'name' => 'price',
+            'label' => 'Price',
+            'type'  => 'number',
+            'prefix' => "$",
+        ]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

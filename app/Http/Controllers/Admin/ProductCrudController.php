@@ -81,7 +81,7 @@ class ProductCrudController extends CrudController
             'attribute' => 'name',
             'model' => Category::class
         ]);
-        
+
         $this->crud->addColumn([
             'name' => 'price',
             'label' => 'Price',

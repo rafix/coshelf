@@ -19,7 +19,7 @@ class Space extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    // protected $fillable = [];
+     protected $fillable = ['name', 'space_type_id', 'size', 'price'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,15 @@ class Space extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function spaceType()
+    {
+        return $this->belongsTo(SpaceType::class);
+    }
+
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

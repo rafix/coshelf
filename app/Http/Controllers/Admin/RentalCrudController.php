@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Space;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -29,8 +30,50 @@ class RentalCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+//        $this->crud->setFromDb();
 
+
+        $this->crud->addColumn([
+            'name' => 'from',
+            'label' => 'Start date',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'to',
+            'label' => 'End date',
+            'type'  => 'text'
+        ]);
+
+        $this->crud->addColumn([
+            'name' => 'space_id',
+            'label' => 'Space',
+            'type'  => 'select',
+            'entity' => 'space',
+            'attribute' => 'name',
+            'model' => Space::class
+        ]);
+
+        $this->crud->addField([
+            'name' => 'event_date_range',
+            'start_name' => 'from', // the db column that holds the start_date
+            'end_name' => 'to',
+            'label' => 'Rental Date Range',
+            'type' => 'date_range',
+            'date_range_options' => [ // options sent to daterangepicker.js
+                'timePicker' => false,
+                'locale' => ['format' => 'mm/ss/YYYY']
+            ]
+        ]);
+
+        $this->crud->addField([
+            'name' => 'space_id',
+            'label' => 'Space',
+            'type'  => 'select2',
+            'entity' => 'space',
+            'attribute' => 'name',
+            'model' => Space::class
+        ]);
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
