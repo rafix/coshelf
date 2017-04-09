@@ -24,5 +24,10 @@ Route::group(['middleware' => 'admin', 'prefix' => 'app'], function () {
     Route::get('/', 'AppController@redirect');
     CRUD::resource('maker', 'Admin\ProfileMakerCrudController');
     CRUD::resource('retailer', 'Admin\ProfileRetailerCrudController');
+    CRUD::resource('category', 'Admin\CategoryCrudController');
+    CRUD::resource('product', 'Admin\ProductCrudController');
+    CRUD::resource('rental', 'Admin\RentalCrudController');
+    CRUD::resource('space', 'Admin\SpaceCrudController');
+    CRUD::resource('space-type', 'Admin\SpaceTypeCrudController');
 });
 
