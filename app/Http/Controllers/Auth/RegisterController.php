@@ -70,7 +70,6 @@ class RegisterController extends Controller
         $user_model_fqn = config('backpack.base.user_model_fqn');
         $user = new $user_model_fqn();
 
-        dd($data['type']);
         $user =  $user->create([
             'name'     => $data['name'],
             'email'    => $data['email'],
@@ -82,7 +81,7 @@ class RegisterController extends Controller
                 'name' =>  $data['type'],
             ]);
         }
-        $user->assingRole($data['type'])->save();
+        $user->syncRoles($data['type'])->save();
 
         return $user;
     }
