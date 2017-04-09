@@ -31,6 +31,7 @@
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/space-type') }}"><i class="fa fa-space"></i> <span>Space Types</span></a></li>
 
 
+          @can('admin')
           <!-- Users, Roles Permissions -->
           <li class="treeview">
             <a href="#"><i class="fa fa-group"></i> <span>Users, Roles, Permissions</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -40,6 +41,7 @@
               <li><a href="{{ url(config('backpack.base.route_prefix', 'admin') . '/permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
             </ul>
           </li>
+          @endcan
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>

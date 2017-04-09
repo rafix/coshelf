@@ -21,7 +21,12 @@ class Rental extends Model
     // protected $guarded = ['id'];
      protected $fillable = ['from', 'to', 'space_id'];
     // protected $hidden = [];
-    // protected $dates = [];
+     protected $dates = [
+         'created_at',
+         'updated_at',
+         'from',
+         'to'
+     ];
 
     /*
     |--------------------------------------------------------------------------
