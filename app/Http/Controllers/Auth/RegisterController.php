@@ -70,26 +70,19 @@ class RegisterController extends Controller
         $user_model_fqn = config('backpack.base.user_model_fqn');
         $user = new $user_model_fqn();
 
+        dd($data['type']);
         $user =  $user->create([
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
 
-        if (Role::all()->whereNotIn('name', $data['type'])) {
+        if (Role::all()->whereIn('name', $data['type'])->isEmpty()) {
             Role::create([
                 'name' =>  $data['type'],
             ]);
         }
-
-        if ($data['type'] == 'maker') {
-            $user->syncRoles('Maker');
-        }
-        elseif ($data['type'] == 'retailer') {
-            $user->assignRole('Retailer');
-        }
-
-        $user->save();
+        $user->assingRole($data['type'])->save();
 
         return $user;
     }
