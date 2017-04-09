@@ -1,28 +1,7 @@
 @extends('layouts.front')
 
 @section('nav')
-    <div class="container">
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="logo collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-center top-nav">
-                       <!--  <li class="hidden">
-                            <a href="#page-top" ></a>
-                        </li>               
-                        <li class="hidden">
-                            <a class="page-scroll" href="#" data-toggle="modal" data-target="#referus">Refer Maker / Retailer</a>
-                        </li> 
-
-                         -->
-                         <li>
-                            <a href="#page-top" id="logoimage" style="background-color: transparent;"><img src="{{ asset('img/coshelf-logo-white.png')}}" id="coshelflogo" alt=Coshelf""></a>
-                        </li>
-                        
-                    </ul>
-                   
-                </div>
-               
-                <!-- /.navbar-collapse -->
-            </div>
+     @include('inc.menu')
 @endsection
 
 @section('content')
@@ -107,7 +86,7 @@
 
                                 <div class="form-group">
                                     <div class="col-md-6 col-md-offset-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary btn-xl">
                                             <i class="fa fa-btn fa-user"></i> {{ trans('backpack::base.register') }}
                                         </button>
                                     </div>

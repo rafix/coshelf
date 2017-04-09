@@ -826,3 +826,7 @@ body {
   margin-top: 12em;
   margin-bottom: 6em;
 }
+
+.register .checkbox label{
+  color: #333;
+}
